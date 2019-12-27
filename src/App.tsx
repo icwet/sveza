@@ -7,7 +7,11 @@ import {
   Link
 } from "react-router-dom";
 
-export const App: FC<T> = () => {
+interface AppProps {
+  
+}
+
+const App: FC<AppProps> = () => {
   return (
       <Router>
         <div>
@@ -48,3 +52,5 @@ export const App: FC<T> = () => {
       </Router>
   );
 };
+
+export default App
