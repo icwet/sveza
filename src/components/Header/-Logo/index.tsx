@@ -3,6 +3,6 @@ import React from "react";
 
 export const Logo = () => {
     return (
-        <div></div>
+        <div className="Header-Logo"/>
     )
 };

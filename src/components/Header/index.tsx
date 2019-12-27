@@ -5,9 +5,9 @@ import { Info } from "./-Info";
 
 export const Header = () => {
     return (
-        <>
-            <Logo/>
-            <Info/>
-        </>
+        <header className="Header">
+          <Logo />
+          <Info />
+        </header>
     )
 };
