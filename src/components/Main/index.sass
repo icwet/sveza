@@ -1,0 +1,83 @@
+.Main
+    position: relative
+    display: grid
+    align-items: center
+    width: 100%
+    height: 681px
+    background: url("./img/main-background.jpg") center/cover no-repeat
+    margin-bottom: 200px
+    &Content
+        position: relative
+        display: grid
+        grid-auto-flow: column
+        padding: 0 100px
+        &:before
+            content: ''
+            display: block
+            width: 1140px
+            height: 1px
+            position: absolute
+            left: 100px
+            top: 85px
+            bottom: 0
+            margin: auto
+            background: #fff
+        &-Titles
+            display: grid
+            color: #fff
+        &-Title
+            font-size: 69px
+            font-family: "Helios", sans-serif
+            font-weight: bold
+            margin: 0
+            span
+                display: block
+        &-Subtitle
+            margin: 0
+            font:
+                family: "Gotham", sans-serif
+                size: 18px
+        &-Buttons
+            display: grid
+            justify-content: end
+            align-items: center
+            align-content: center
+            padding-top: 85px
+            font-family: "ProximaNova", sans-serif
+        &-Button
+            width: 292px
+            height: 90px
+            margin: 0
+            padding: 0
+            border: none
+            background: #fff
+            font-family: inherit
+            font-size: 16px
+            font-weight: bold
+            text-transform: uppercase
+            cursor: pointer
+            &_transparent
+                color: #fff
+                border: 1px solid #fff
+                background: transparent
+    &More
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 425px
+        height: 102px
+        font-family: "Gotham", sans-serif
+        font-size: 18px
+        background: transparent url("./img/main-button-bg.png") center/cover no-repeat
+        border: none
+        &:before
+            content: ''
+            display: block
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 105px
+            margin: auto
+            width: 16px
+            height: 35px
+            background: url("./img/ic-more.svg") center/contain no-repeat

@@ -4,16 +4,44 @@
         grid-auto-flow: column
         gap: 40px
         color: #949494
+        font-family: "Gotham", sans-serif
     &-Work
+        text-decoration: none
         transition: color ease 0.3s
+        color: #949494
+        font-weight: bold
+        font-size: 12px
+        text-transform: uppercase
         &:hover
             color: #000000
     &-Profile
+        text-decoration: none
         transition: color ease 0.3s
+        color: #949494
+        font-weight: bold
+        font-size: 12px
+        text-transform: uppercase
         &:hover
             color: #000000
     &-Phone
+        position: relative
         padding-left: 20px
+        text-decoration: none
         transition: color ease 0.3s
+        color: #949494
+        font-weight: bold
+        font-size: 12px
+        text-transform: uppercase
+        &:before
+            content: ''
+            position: absolute
+            left: -9px
+            top: 0
+            bottom: 0
+            margin: auto
+            display: block
+            width: 19px
+            height: 19px
+            background: url("./img/phone.svg") center/contain no-repeat
         &:hover
             color: #000000
