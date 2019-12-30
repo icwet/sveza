@@ -1,11 +1,11 @@
-import "./index.sass"
+import "./index.sass";
+import React from "react";
 import block1 from "./img/block-1.svg";
 import block2 from "./img/block-2.svg";
 import block3 from "./img/block-3.svg";
 import block4 from "./img/block-4.svg";
 import block5 from "./img/block-5.svg";
 import block6 from "./img/block-6.svg";
-import React from "react";
 import { InfoCard } from "../InfoCard";
 
 

@@ -1,4 +1,4 @@
-import "./index.sass"
+import "./index.sass";
 import React from "react";
 import { Logo } from "./-Logo"
 import { Info } from "./-Info";
