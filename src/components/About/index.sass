@@ -1,17 +1,20 @@
 .About
+    max-width: 1140px
     position: relative
     display: grid
     grid-auto-flow: column
+    margin-left: auto
+    margin-right: auto
     margin-bottom: 200px
     &-Preview
         position: relative
     &-Image
-        width: 100%
+        min-width: 512px
         height: 100%
     &-Logo
         position: absolute
-        bottom: 0
-        left: 0
+        bottom: -3px
+        left: 3px
     &-Content
         padding-left: 68px
     &-Title
@@ -22,7 +25,6 @@
             family: "Helios", sans-serif
             weight: bold
     &-Ph
-        padding-right: 100px
         font:
             family: "Gotham", sans-serif
             size: 15px

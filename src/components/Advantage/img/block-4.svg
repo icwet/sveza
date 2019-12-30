@@ -1,0 +1,18 @@
+<svg width="62" height="64" viewBox="0 0 62 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M29.7871 5.77155H32.133V0H29.7871V5.77155Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M30.8746 8.05859C22.0434 8.05859 14.8848 15.2205 14.8848 24.0544C14.8848 30.1038 18.2425 35.3679 23.1944 38.086V40.0502H29.7154V36.0653L26.5847 32.9334L28.2441 31.274L30.8746 33.9055L33.5044 31.274L35.1639 32.9334L32.0619 36.0365V40.0502H38.6093V38.0546C43.5305 35.3272 46.8644 30.0812 46.8644 24.0544C46.8644 15.2205 39.7052 8.05859 30.8746 8.05859Z" fill="#81B33B"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="62" height="64">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 63.9998H61.8667V0.000976562H0V63.9998Z" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M48.8555 24.9553H54.6249V22.6079H48.8555V24.9553Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.24219 24.9553H13.011V22.6079H7.24219V24.9553Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M44.3736 35.6299L48.4535 39.7113L46.7941 41.3701L42.7148 37.2893L44.3736 35.6299Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.9518 6.19336L19.031 10.2741L17.3716 11.9336L13.293 7.85277L14.9518 6.19336Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.1176 37.2898L15.0377 41.3706L13.3789 39.7112L17.4588 35.6304L19.1176 37.2898Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M48.5427 7.85277L44.4635 11.9342L42.8047 10.2741L46.884 6.19336L48.5427 7.85277Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.1914 44.0814H38.6064V41.6851H23.1914V44.0814Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M38.6064 45.6621H23.1914V49.3992H27.1591V53.1169H34.6387V49.3992H38.6064V45.6621Z" fill="#81B33B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33.0523 61.7655H28.9586C28.9586 61.7655 28.9141 52.4531 0 52.4531V59.627H24.1715V61.7015H0V64H61.8673V61.7015H37.6957V59.627H61.8673V52.4531C61.8673 52.4531 33.0523 52.8946 33.0523 61.7655Z" fill="#81B33B"/>
+</g>
+</svg>

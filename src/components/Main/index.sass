@@ -10,14 +10,15 @@
         position: relative
         display: grid
         grid-auto-flow: column
-        padding: 0 100px
+        margin: 0 100px
+        overflow: hidden
         &:before
             content: ''
             display: block
-            width: 1140px
+            width: 100%
             height: 1px
             position: absolute
-            left: 100px
+            left: 0
             top: 85px
             bottom: 0
             margin: auto
@@ -70,6 +71,7 @@
         font-size: 18px
         background: transparent url("./img/main-button-bg.png") center/cover no-repeat
         border: none
+        cursor: pointer
         &:before
             content: ''
             display: block
