@@ -1,8 +1,6 @@
-import "./index.sass";
-import React from "react";
+import './index.sass';
+import React from 'react';
 
-export const Logo = () => {
-    return (
-        <div className="Header-Logo"/>
-    )
+export const HeaderLogo = () => {
+    return <div className="Header-Logo" />;
 };

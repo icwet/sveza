@@ -1,37 +1,25 @@
-import React from "react";
-import { FC } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import { Home } from "./Home";
+import React from 'react';
+import { FC } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Home } from './Home';
 
-interface AppProps {
-
-}
+interface AppProps {}
 
 const App: FC<AppProps> = () => {
-  return (
-      <Router>
-        <div>
-          <Switch>
-            <Route path="/">
-                <Home />
-            </Route>
-            <Route path="/profile1">
-
-            </Route>
-            <Route path="/profile2">
-
-            </Route>
-            <Route path="/profile3">
-
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-  );
+    return (
+        <Router>
+            <div>
+                <Switch>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/profile1"></Route>
+                    <Route path="/profile2"></Route>
+                    <Route path="/profile3"></Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 };
 
-export default App
+export default App;
