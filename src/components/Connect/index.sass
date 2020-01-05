@@ -1,0 +1,73 @@
+.Connect
+    display: grid
+    grid-auto-flow: column
+    max-width: 1140px
+    margin: auto auto 200px
+    &-Content
+        margin-right: 140px
+    &-Title
+        font:
+            family: "Helios", sans-serif
+            weight: bold
+            size: 69px
+        span
+            display: block
+    &-Ph
+        font:
+            family: "Gotham", sans-serif
+            size: 19px
+        line-height: 33px
+        margin:
+            bottom: 60px
+    &-List
+        list-style-type: none
+    &-Elem
+        position: relative
+        margin-bottom: 30px
+        font:
+            size: 18px
+            family: "Gotham", sans-serif
+        &:last-child
+            margin:
+                bottom: 60px
+        &:before
+            position: absolute
+            left: -32px
+            top: 0
+            bottom: 0
+            margin: auto
+            content: ''
+            display: block
+            width: 12px
+            height: 12px
+            background: #81B33B
+            border-radius: 50%
+    &-Button
+        position: relative
+        font:
+            size: 17px
+            family: "ProximaNova", sans-serif
+            weight: bold
+        text-transform: uppercase
+        padding: 23px 59px 23px 40px
+        background: none
+        border: 1px solid #81B33B
+        cursor: pointer
+        &:active
+            background: #fff
+        &:disabled
+            opacity: 0.2
+        &:before
+            position: absolute
+            right: 41px
+            top: 0
+            bottom: 0
+            margin: auto
+            content: ''
+            width: 8px
+            height: 12px
+            background: url("./img/arrow.svg") center/contain no-repeat
+    &-Preview
+        width: 500px
+        height: 750px
+        background: url("./img/preview.jpg") center/contain no-repeat

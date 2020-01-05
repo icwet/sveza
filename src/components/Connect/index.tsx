@@ -5,7 +5,9 @@ export const Connect = () => {
     return (
         <section className="Connect">
             <div className="Connect-Content">
-                <h2 className="Connect-Title">Присоединяйтесь к «Свезе»!</h2>
+                <h2 className="Connect-Title">
+                    <span>Присоединяйтесь</span> к «Свезе»!
+                </h2>
                 <p className="Connect-Ph">
                     Мы обеспечиваем всех сотрудников достойной заработной платой, ценным опытом и большими
                     перспективами.
