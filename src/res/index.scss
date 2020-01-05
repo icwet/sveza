@@ -36,5 +36,7 @@
 }
 
 @include font-face(Gotham, fonts/ GothamPro, null, null, woff)
+@include font-face(Gotham, fonts/ GothamPro-Bold, bold, null, woff)
 @include font-face(Helios, fonts/ HeliosCond, null, null, woff)
+@include font-face(Helios, fonts/ HeliosCond-Bold, bold, null, woff)
 @include font-face(ProximaNova, fonts/ ProximaNova-Regular, null, null, woff)

@@ -1,8 +1,18 @@
 .Career
     position: relative
-    max-width: 1140px
-    margin: auto auto 200px
     padding: 116px 0 0 0
+    &-Container
+        max-width: 1140px
+        margin: auto auto 200px
+    &:after
+        content: ''
+        display: block
+        position: absolute
+        right: -4vw
+        bottom: -1vh
+        background: url("./img/ic-more.svg") center/contain no-repeat
+        width: 524px
+        height: 102px
     &:before
         position: absolute
         top: 0
@@ -27,7 +37,54 @@
         line-height: 33px
         span
             display: block
+        &_small
+            font:
+                size: 15px
+            line-height: 25px
+            margin-right: 55px
     &-Slider
         height: 500px
+        &_visible
+            &:before
+                content: ''
+                display: block
+                width: 706px
+                right: -706px
+                height: 398px
+                position: absolute
+                background: rgba(0, 0, 0, 0.5)
+                z-index: 2
+
+    &-Buttons
+        display: grid
+        justify-content: end
+        grid-auto-flow: column
+    &-SliderButton
+        width: 27px
+        height: 18px
+        border: none
+        outline: none
+        &_next
+            margin-left: 32px
+            background: url("./img/slider-arrow.svg") center/contain no-repeat
+            &:hover
+                background: url("./img/slider-arrow-next-hover.svg")
+        &_back
+            margin-right: 32px
+            background: url("./img/slider-arrow-back.svg") center/contain no-repeat
+            &:hover
+                background: url("./img/slider-arrow-back-hover.svg")
+    &-Text
+        display: grid
+        grid-auto-flow: column
+        max-width: 706px
+.Count
+    display: flex
+    margin-bottom: 56px
+    font:
+        family: "Gotham", sans-serif
+        size: 15px
+
+
 
 
