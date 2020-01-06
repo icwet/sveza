@@ -1,6 +1,7 @@
 import './index.sass';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const HeaderLogo = () => {
-    return <div className="Header-Logo" />;
+    return <Link to="/" className="Header-Logo" />;
 };

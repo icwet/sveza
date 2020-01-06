@@ -7,10 +7,10 @@ export const HeaderInfo = () => {
 
     return (
         <div className="Header-Info">
-            <Link to="/profile1" className="Header-Work">
+            <Link to="/profile" className="Header-Work">
                 {infoData[0]}
             </Link>
-            <Link to="/profile2" className="Header-Profile">
+            <Link to="/profile" className="Header-Profile">
                 {infoData[1]}{' '}
             </Link>
             <a href="tel:88005000710" className="Header-Phone">

@@ -1,0 +1,66 @@
+.Profile
+    position: relative
+    max-width: 1140px
+    margin: auto
+    padding:
+        top: 100px
+        bottom: 100px
+    &:before
+        content: ''
+        display: block
+        position: absolute
+        top: 0
+        left: -100%
+        width: 1000%
+        height: 1px
+        background: rgba(0, 0, 0, 0.1)
+    &-Form
+        max-width: 720px
+        margin: auto
+    &-Title
+        font:
+            size: 69px
+            family: "Helios", sans-serif
+            weight: bold
+        margin:
+            top: 0
+            bottom: 110px
+    &-Main
+        display: grid
+        grid-auto-flow: column
+    &-Label
+        display: flex
+        flex-direction: column
+        margin-bottom: 34px
+        font:
+            size: 13px
+            family: "Gotham", sans-serif
+            weight: bold
+        text-transform: uppercase
+        color: #A7A7A7
+        input
+            margin-top: 13px
+    &-Input
+        width: 342px
+        height: 45px
+        padding: 17px
+        font:
+            size: 13px
+            family: "Gotham", sans-serif
+        color: #525252
+        border: 1.5px solid #D6D6D6
+    &-Grid
+        margin-right: 37px
+        &:last-child
+            margin-right: 0
+    &-DropDown
+        margin-bottom: 34px
+        label
+            margin-bottom: 13px
+    &-PhoneNumber
+        padding: 0
+        margin: 0
+        border: none
+.Phone
+    display: grid
+    grid-auto-flow: column
