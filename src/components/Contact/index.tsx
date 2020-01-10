@@ -15,7 +15,22 @@ export const Contact = () => {
                     <div className="Contact-Requisites">© ООО «Свеза-Лес», 2019</div>
                 </div>
             </div>
-            <div className="Contact-Map"></div>
+            <div className="Contact-Map">
+                <div className="Map">
+                    <div className="Map-Pos">
+                        <div className="Map-Dot" />
+                        <div className="Map-Info">
+                            <h2 className="Title">“Свеза Верхняя Синячиха”</h2>
+                            <p className="Ph">
+                                Свердловская обл., Алапаевский р-н, пос. Верхняя Синячиха, ул. Кедровая, д. 1
+                            </p>
+                            <a href="tel:+73434697318" className="Phone">
+                                +7 34346 9-73-18
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
     );
 };
