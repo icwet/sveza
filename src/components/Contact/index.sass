@@ -44,7 +44,7 @@
         width: 900px
         height: 490px
         background: url("./img/map.svg") center/contain no-repeat
-        
+
 .Map
     position: relative
     width: 100%
@@ -53,6 +53,28 @@
         position: absolute
         bottom: 180px
         left: 365px
+        &_two
+            bottom: 150px
+            left: 385px
+        &_three
+            bottom: 200px
+            left: 330px
+        &_four
+            bottom: 254px
+            left: 245px
+        &_five
+            bottom: 243px
+            left: 275px
+        &_six
+            bottom: 270px
+            left: 285px
+        &_seven
+            bottom: 164px
+            left: 190px
+        &_eight
+            bottom: 330px
+            left: 221px
+
         &:hover
             .Map-Info
                 opacity: 1
@@ -62,8 +84,8 @@
                 &:before
                     background: #fff
     &-Info
-        //opacity: 0
-        //transition: opacity 0.4s ease
+        opacity: 0
+        transition: opacity 0.2s ease
 
         position: absolute
         min-width: 296px
@@ -74,13 +96,14 @@
         bottom: 100px
         padding: 40px
         background: url("./img/bg.svg") center/contain no-repeat
+        pointer-events: none
         &:before
             position: absolute
             bottom: -25px
-            right: -56px
+            right: -49px
             content: ''
             display: block
-            width: 113px
+            width: 100px
             height: 1px
             background: #81B33B
 
@@ -94,7 +117,7 @@
         border-radius: 50%
         border: 1px solid #81B33B
         cursor: pointer
-        transition: transform 0.1s ease
+        transition: transform 0.2s ease
         &:before
             position: absolute
             content: ''

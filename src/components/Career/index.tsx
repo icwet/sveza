@@ -62,6 +62,7 @@ export const Career = () => {
                                 classNameHidden="Career-Slider_hidden"
                                 index={0}>
                                 <iframe
+                                    title="video 1"
                                     width="706"
                                     height="398"
                                     src="https://www.youtube.com/embed/057T3zQG5OU"
@@ -75,6 +76,7 @@ export const Career = () => {
                                 classNameHidden="Career-Slider_hidden"
                                 index={1}>
                                 <iframe
+                                    title="video 2"
                                     width="706"
                                     height="398"
                                     src="https://www.youtube.com/embed/057T3zQG5OU"
@@ -88,6 +90,7 @@ export const Career = () => {
                                 classNameHidden="Career-Slider_hidden"
                                 index={2}>
                                 <iframe
+                                    title="video 3"
                                     width="706"
                                     height="398"
                                     src="https://www.youtube.com/embed/057T3zQG5OU"
