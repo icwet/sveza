@@ -1,8 +1,97 @@
 import './index.sass';
 import React from 'react';
-import { Dropdown } from 'react-bootstrap';
+import Select from 'react-select';
+
+
+
 
 export const Profile = () => {
+    const address = [
+        {
+            label: 'СВЕЗА Усть-Ижора',
+            value: 'СВЕЗА Усть-Ижора',
+            about: 'Колпинский район, посёлок Понтонный, ул.Фанерная, дом 5, 3 этаж',
+        },
+        {
+            label: 'СВЕЗА Кострома',
+            value: 'СВЕЗА Кострома',
+            about: 'Город Кострома, улица Комсомольская, дом 2, 1 этаж',
+        },
+        {
+            label: 'СВЕЗА Уральский',
+            value: 'СВЕЗА Уральский',
+            about: 'Пермский край, Нытвенский р-н, пос. Уральский, ул . Московская, дом 1а',
+        },
+        {
+            label: 'СВЕЗА Мантурово',
+            value: 'СВЕЗА Мантурово',
+            about: 'Город Мантурово, ул.Матросова, дом 2Б, 2 этаж',
+        },
+        {
+            label: 'СВЕЗА Новатор',
+            value: 'СВЕЗА Новатор',
+            about: 'Вологодская обл., Великоустюгский район, поселок Новатор',
+        },
+        {
+            label: 'СВЕЗА Верхняя Синячиха',
+            value: 'СВЕЗА Верхняя Синячиха',
+            about: 'Алапаевский район, посёлок Верхняя Синячиха, ул.Кедровая, дом 1',
+        },
+        {
+            label: 'СВЕЗА Тюмень',
+            value: 'СВЕЗА Тюмень',
+            about: 'Город Тюмень, ул.Камчатская, 196',
+        },
+        {
+            label: 'СВЕЗА Ресурс',
+            value: 'СВЕЗА Ресурс',
+            about: 'Тотемский район, посёлок Советский, ул. Дачная 1А',
+        }
+    ];
+    const customStyles = {
+        control: (provided: any, state: any) => ({
+            ...provided,
+            width: 342,
+            height: 45,
+            border: '1.5px solid #D6D6D6',
+            'border-radius': 0,
+            'font-family': 'Gotham, sans-serif',
+            'font-size': '13px',
+            'font-weight': 'bold',
+            cursor: 'pointer',
+            'box-shadow': 'unset',
+            ':hover': {
+                'border-color': '#D6D6D6'
+            }
+        }),
+        option: (provided: any, state: any) => ({
+            ...provided,
+            display: 'flex',
+            'align-items': 'center',
+            height: 39,
+            cursor: 'pointer',
+            color: '#525252',
+            font: 'bold 13px Gotham, sans-serif',
+            background: state.isSelected ? '#FBFBFB' : '#FBFBFB',
+            ':hover': {
+                background: '#81B33B',
+                color: '#fff'
+            }
+        }),
+        indicatorSeparator: () => ({
+            display: 'none'
+        }),
+        indicatorsContainer: () => ({
+            'svg': {
+                fill: '#525252',
+                ':hover': {
+                    fill: '#525252'
+                }
+            }
+        })
+    };
+
+
     return (
         <section className="Profile">
             <h2 className="Profile-Title">Анкета</h2>
@@ -27,18 +116,14 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid">
-                        <Dropdown className="Profile-DropDown">
-                            <label className="Profile-Label" htmlFor="dropdown_combine">
-                                Комбинат
-                            </label>
-                            <Dropdown.Toggle id="dropdown_combine">Dropdown Button</Dropdown.Toggle>
 
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        <Select
+                            defaultValue={address[0]}
+                            options={address}
+                            styles={customStyles}
+                            isSearchable={false}
+                        />
+
                         <div className="Profile-Empty" />
                         <fieldset className="Profile-PhoneNumber">
                             <label className="Phone">
@@ -50,18 +135,15 @@ export const Profile = () => {
                             Адрес по прописке
                             <input type="text" className="Profile-Input" />
                         </label>
-                        <Dropdown className="Profile-DropDown">
-                            <label className="Profile-Label" htmlFor="dropdown_nationality">
-                                Гражданство*
-                            </label>
-                            <Dropdown.Toggle id="dropdown_nationality">Dropdown Button</Dropdown.Toggle>
 
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+
+
+                    </div>
+                    <div className="Profile-Grid">
+
+                    </div>
+                    <div className="Profile-Grid">
+
                     </div>
                 </div>
             </form>
