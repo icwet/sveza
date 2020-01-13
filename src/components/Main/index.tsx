@@ -1,5 +1,6 @@
 import './index.sass';
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 interface MainProps {
     onClick: any;
@@ -17,8 +18,8 @@ export const Main: FC<MainProps> = ({ onClick }) => {
                     <h2 className="MainContent-Subtitle">Мировой лидер по производству березовой фанеры</h2>
                 </div>
                 <div className="MainContent-Buttons">
-                    <button className="MainContent-Button">Заполнить анкету</button>
-                    <button className="MainContent-Button MainContent-Button_transparent">Вакансии</button>
+                    <Link to="/profile" className="MainContent-Button">Заполнить анкету</Link>
+                    <Link to="/profile" className="MainContent-Button MainContent-Button_transparent">Вакансии</Link>
                 </div>
             </div>
             <button className="MainMore" onClick={onClick}>

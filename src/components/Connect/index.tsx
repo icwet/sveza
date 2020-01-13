@@ -1,5 +1,6 @@
 import './index.sass';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Connect = () => {
     return (
@@ -17,7 +18,7 @@ export const Connect = () => {
                     <li className="Connect-Elem">Уверенность в завтрашнем дне</li>
                     <li className="Connect-Elem">Забота о сотрудниках и их здоровье</li>
                 </ul>
-                <button className="Connect-Button">Заполнить анкету</button>
+                <Link to="/profile" className="Connect-Button">Заполнить анкету</Link>
             </div>
             <div className="Connect-Preview"></div>
         </section>

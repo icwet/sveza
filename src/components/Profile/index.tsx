@@ -183,7 +183,7 @@ export const Profile = () => {
                             isSearchable={false}
                             components={{ MenuList }}
                             onChange={({...newValue}) => setCurrentValue(newValue.value)}
-                            menuIsOpen={true}
+                            // menuIsOpen={true}
                         />
 
                         <div className="Profile-Empty" />
