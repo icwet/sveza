@@ -25,9 +25,19 @@
         margin:
             top: 0
             bottom: 110px
+    &-Subtitle
+        margin:
+            top: 0
+            bottom: 24px
+        font:
+            family: "Gotham", sans-serif
+            size: 13px
+        color: #727272
+        text-transform: uppercase
     &-Main
         display: grid
-        grid-auto-flow: column
+        grid-auto-flow: row
+        grid-template-columns: 1fr 1fr
     &-Label
         display: flex
         flex-direction: column
@@ -40,6 +50,10 @@
         color: #A7A7A7
         input
             margin-top: 13px
+        &_width
+            &_full
+                input
+                    width: 100%
     &-Input
         width: 342px
         height: 45px
@@ -49,16 +63,56 @@
             family: "Gotham", sans-serif
         color: #525252
         border: 1.5px solid #D6D6D6
+        &:focus
+            border: 1.5px solid #81B33B
+            outline: none
+    &-FieldSet
+        padding: 0
+        margin: 0
+        border: none
+    &-Checkbox
+        display: flex
+        margin-bottom: 24px
+    &-Legend
+        margin-bottom: 13px
+        padding-left: 0
+        font:
+            size: 13px
+            family: "Gotham", sans-serif
+            weight: bold
+        color: #A7A7A7
+        text-transform: uppercase
     &-Grid
         margin-right: 37px
         &:last-child
             margin-right: 0
+        &_gap
+            &_top
+                padding-top: 38px
+        &_width_full
+            grid-column: 1 / 3
+    &-DropDown
+        margin-bottom: 34px
+        label
+            margin-bottom: 13px
     &-PhoneNumber
         padding: 0
         margin: 0
         border: none
     &-DropDown
         height: 45px
+    &-Submit
+        margin-top: 55px
+        width: 190px
+        height: 64px
+        background: #81B33B
+        border: none
+        color: #ffffff
+        font:
+            family: "ProximaNova", sans-serif
+            weight: bold
+            size: 17px
+        text-transform: uppercase
 .Phone
     display: grid
     grid-auto-flow: column
@@ -81,3 +135,244 @@
             family: "Gotham", sans-serif
         color: #525252
         border: 1.5px solid #D6D6D6
+
+.Checkbox
+    padding-right: 29px
+    &:last-child
+        margin: 0
+    &-Input
+        &:not(:checked), &:checked
+            position: absolute
+            left: -9999px
+        &:not(:checked) + .Checkbox-Label, &:checked + .Checkbox-Label
+            position: relative
+            padding-left: 22px
+            cursor: pointer
+        &:not(:checked) + .Checkbox-Label:before, &:checked + .Checkbox-Label:before
+            content: ''
+            position: absolute
+            left: 0
+            top: 0
+            width: 15px
+            height: 15px
+            border: 1px solid #979797
+            background: #fff
+        &:not(:checked) + .Checkbox-Label:after, &:checked + .Checkbox-Label:after
+            content: ''
+            display: block
+            position: absolute
+            left: 3px
+            top: 3px
+            width: 9px
+            height: 9px
+            background: #81B33B
+            transition: all .2s
+        &:not(:checked) + .Checkbox-Label:after
+            opacity: 0
+            transform: scale(0)
+        &:checked + .Checkbox-Label:after
+            opacity: 1
+            transform: scale(1)
+        &:disabled:not(:checked) + .Checkbox-Label:before,
+        &:disabled:checked + .Checkbox-Label:before
+            box-shadow: none
+            border-color: #bbb
+            background-color: #ddd
+        &:disabled:checked + .Checkbox-Label:after
+            color: #999
+        &:disabled + .Checkbox-Label
+            color: #aaa
+    &-Label
+        font:
+            family: "Gotham", sans-serif
+            size: 13px
+            weight: bold
+        color: #A7A7A7
+    &_type_alt
+        .Checkbox-Input
+            &:not(:checked), &:checked
+                position: absolute
+                left: -9999px
+            &:not(:checked) + .Checkbox-Label, &:checked + .Checkbox-Label
+                position: relative
+                padding-left: 45px
+                cursor: pointer
+            &:not(:checked) + .Checkbox-Label:before, &:checked + .Checkbox-Label:before
+                content: ''
+                position: absolute
+                left: 0
+                top: 0
+                width: 24px
+                height: 24px
+                border: 1px solid #979797
+                border-radius: 50%
+                background: #fff
+            &:not(:checked) + .Checkbox-Label:after, &:checked + .Checkbox-Label:after
+                content: ''
+                display: block
+                position: absolute
+                left: 4px
+                top: 4px
+                width: 16px
+                height: 16px
+                border-radius: 50%
+                background: #81B33B
+                transition: all .2s
+            &:not(:checked) + .Checkbox-Label:after
+                opacity: 0
+                transform: scale(0)
+            &:checked + .Checkbox-Label:after
+                opacity: 1
+                transform: scale(1)
+            &:disabled:not(:checked) + .Checkbox-Label:before,
+            &:disabled:checked + .Checkbox-Label:before
+                box-shadow: none
+                border-color: #bbb
+                background-color: #ddd
+            &:disabled:checked + .Checkbox-Label:after
+                color: #999
+            &:disabled + .Checkbox-Label
+                color: #aaa
+        .Checkbox-Label
+            padding-top: 5px
+            font:
+                family: "Gotham", sans-serif
+                size: 14px
+                weight: bold
+            color: #81B33B
+
+.Date
+    width: 342px
+    height: 45px
+    padding: 17px
+    margin:
+        bottom: 34px
+    font:
+        size: 13px
+        family: "Gotham", sans-serif
+    color: #525252
+    border: 1.5px solid #D6D6D6
+    &:focus
+        outline: none
+        border: 1.5px solid #81B33B
+    &-Day
+        font:
+            size: 14px
+            weight: bold
+            family: "Gotham", sans-serif
+        color: #525252 !important
+        &__day--selected
+            position: relative
+            background: transparent
+            color: #fff
+            z-index: 2
+            &:before
+                position: absolute
+                top: 0
+                bottom: 0
+                right: 0
+                left: 0
+                margin: auto
+                width: 32px
+                height: 32px
+                content: ''
+                display: block
+                background: #81B33B
+                border-radius: 50%
+                z-index: -1
+    &-Calendar
+        width: 346px
+        height: 469px
+        padding: 20px
+        border: none !important
+        border-radius: 0 !important
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1)
+        .react-datepicker
+            &__current-month
+                &--hasYearDropdown
+                    display: none
+            &__navigation
+                display: none
+            &__triangle
+                display: none
+            &__header
+                width: 100%
+                border: none
+                background-color: transparent
+                &__dropdown
+                    display: flex
+                    margin-bottom: 28px
+            &__day-name
+                font:
+                    size: 17px
+                    weight: bold
+                    family: "Gotham", sans-serif
+                color: #525252
+                text-transform: capitalize
+            &__day-names, &__week
+                display: flex
+                justify-content: space-between
+            &__day-names
+                margin:
+                    bottom: 20px
+            &__week
+                margin:
+                    bottom: 8px
+            &__month-container
+                width: 100%
+            &__month-dropdown-container, &__year-dropdown-container
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 143px
+                height: 45px
+                font:
+                    size: 13px
+                    family: "Gotham", sans-serif
+                    weight: bold
+                text-transform: uppercase
+                color: #525252
+                border: 1.5px solid #D6D6D6
+                margin: auto
+            &__month-read-view, &__year-read-view
+                position: relative
+                display: flex
+                align-items: center
+                width: 100%
+                height: 100%
+                padding:
+                    left: 23px
+                margin: 0
+                &:before
+                    position: absolute
+                    right: 20px
+                    top: 0
+                    bottom: 0
+                    margin: auto
+                    content: ''
+                    display: block
+                    width: 12px
+                    height: 12px
+                    background: url("./arrow.svg") center/contain no-repeat
+            &__month-read-view--down-arrow
+                display: none
+            &__year-read-view--down-arrow
+                display: none
+            &__today-button
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 100%
+                height: 64px
+                border: none
+                background: #81B33B
+                color: #fff
+                font:
+                    size: 17px
+                    weight: bold
+                    family: "ProximaNova", sans-serif
+                text-transform: uppercase
+
+
+
+
