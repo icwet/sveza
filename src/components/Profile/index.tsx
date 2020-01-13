@@ -1,9 +1,23 @@
 import './index.sass';
 import React from 'react';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
 
 
-
+const menuHeaderStyle = {
+    height: 25,
+    padding: '12px',
+    marginBottom: '12px',
+    color: '#525252',
+    font: 'bold 13px Gotham, sans-serif',
+};
+const MenuList = ({ ...props }) => {
+    return (
+        <components.MenuList {...props}>
+            <div style={menuHeaderStyle}>{props.getValue}</div>
+            {props.children}
+        </components.MenuList>
+    );
+};
 
 export const Profile = () => {
     const address = [
@@ -54,20 +68,20 @@ export const Profile = () => {
             width: 342,
             height: 45,
             border: '1.5px solid #D6D6D6',
-            'border-radius': 0,
-            'font-family': 'Gotham, sans-serif',
-            'font-size': '13px',
-            'font-weight': 'bold',
+            borderRadius: 0,
+            fontFamily: 'Gotham, sans-serif',
+            fontSize: '13px',
+            fontWeight: 'bold',
             cursor: 'pointer',
-            'box-shadow': 'unset',
+            boxShadow: 'unset',
             ':hover': {
-                'border-color': '#D6D6D6'
+                borderColor: '#D6D6D6'
             }
         }),
         option: (provided: any, state: any) => ({
             ...provided,
             display: 'flex',
-            'align-items': 'center',
+            alignItems: 'center',
             height: 39,
             cursor: 'pointer',
             color: '#525252',
@@ -122,6 +136,7 @@ export const Profile = () => {
                             options={address}
                             styles={customStyles}
                             isSearchable={false}
+                            components={{MenuList}}
                         />
 
                         <div className="Profile-Empty" />
