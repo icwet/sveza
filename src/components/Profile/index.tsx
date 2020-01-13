@@ -5,23 +5,116 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import Select, { components } from 'react-select';
 
+const address = [
+    {
+        label: 'СВЕЗА Усть-Ижора',
+        value: 'СВЕЗА Усть-Ижора',
+        about: 'Колпинский район, посёлок Понтонный, ул.Фанерная, дом 5, 3 этаж',
+    },
+    {
+        label: 'СВЕЗА Кострома',
+        value: 'СВЕЗА Кострома',
+        about: 'Город Кострома, улица Комсомольская, дом 2, 1 этаж',
+    },
+    {
+        label: 'СВЕЗА Уральский',
+        value: 'СВЕЗА Уральский',
+        about: 'Пермский край, Нытвенский р-н, пос. Уральский, ул . Московская, дом 1а',
+    },
+    {
+        label: 'СВЕЗА Мантурово',
+        value: 'СВЕЗА Мантурово',
+        about: 'Город Мантурово, ул.Матросова, дом 2Б, 2 этаж',
+    },
+    {
+        label: 'СВЕЗА Новатор',
+        value: 'СВЕЗА Новатор',
+        about: 'Вологодская обл., Великоустюгский район, поселок Новатор',
+    },
+    {
+        label: 'СВЕЗА Верхняя Синячиха',
+        value: 'СВЕЗА Верхняя Синячиха',
+        about: 'Алапаевский район, посёлок Верхняя Синячиха, ул.Кедровая, дом 1',
+    },
+    {
+        label: 'СВЕЗА Тюмень',
+        value: 'СВЕЗА Тюмень',
+        about: 'Город Тюмень, ул.Камчатская, 196',
+    },
+    {
+        label: 'СВЕЗА Ресурс',
+        value: 'СВЕЗА Ресурс',
+        about: 'Тотемский район, посёлок Советский, ул. Дачная 1А',
+    },
+];
 const menuHeaderStyle = {
-    height: 25,
+    display: 'flex',
+    justifyContent: 'space-between',
+    height: 45,
     padding: '12px',
     marginBottom: '12px',
     color: '#525252',
     font: 'bold 13px Gotham, sans-serif',
 };
-const MenuList = ({ ...props }) => {
-    return (
-        <components.MenuList {...props}>
-            <div style={menuHeaderStyle}>{props.getValue}</div>
-            {props.children}
-        </components.MenuList>
-    );
+const checkMark = {
+    width: 12,
+    height: 12,
+    background: 'url("./img/checkmark.svg") center/contain no-repeat'
+};
+const customStyles = {
+    control: (provided: any, state: any) => ({
+        ...provided,
+        width: 342,
+        height: 45,
+        marginTop: 28,
+        marginBottom: 169,
+        border: '1.5px solid #D6D6D6',
+        borderRadius: 0,
+        fontFamily: 'Gotham, sans-serif',
+        fontSize: '13px',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        boxShadow: 'unset',
+        ':hover': {
+            borderColor: '#D6D6D6',
+        },
+    }),
+    option: (provided: any, state: any) => ({
+        ...provided,
+        display: 'flex',
+        alignItems: 'center',
+        height: 39,
+        cursor: 'pointer',
+        color: '#525252',
+        font: 'bold 13px Gotham, sans-serif',
+        background: state.isSelected ? '#FBFBFB' : '#FBFBFB',
+        ':hover': {
+            background: '#81B33B',
+            color: '#fff',
+        },
+    }),
+    indicatorSeparator: () => ({
+        display: 'none',
+    }),
+    indicatorsContainer: () => ({
+        svg: {
+            fill: '#525252',
+            ':hover': {
+                fill: '#525252',
+            },
+        },
+    }),
+    menu: (provided: any, state: any) => ({
+        ...provided,
+        background: '#FBFBFB',
+        borderRadius: 0,
+        boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)'
+    }),
 };
 
+
 export const Profile = () => {
+    const [dateBirth, setDateBirth] = useState(null);
     const [startDateEnter, setDateEnter] = useState(null);
     const [startDateEnd, setDateEnd] = useState(null);
     const [startDateEnterSecond, setDateEnterSecond] = useState(null);
@@ -31,89 +124,15 @@ export const Profile = () => {
     const [startDateEnterFour, setDateEnterFour] = useState(null);
     const [startDateEndFour, setDateEndFour] = useState(null);
 
-    const address = [
-        {
-            label: 'СВЕЗА Усть-Ижора',
-            value: 'СВЕЗА Усть-Ижора',
-            about: 'Колпинский район, посёлок Понтонный, ул.Фанерная, дом 5, 3 этаж',
-        },
-        {
-            label: 'СВЕЗА Кострома',
-            value: 'СВЕЗА Кострома',
-            about: 'Город Кострома, улица Комсомольская, дом 2, 1 этаж',
-        },
-        {
-            label: 'СВЕЗА Уральский',
-            value: 'СВЕЗА Уральский',
-            about: 'Пермский край, Нытвенский р-н, пос. Уральский, ул . Московская, дом 1а',
-        },
-        {
-            label: 'СВЕЗА Мантурово',
-            value: 'СВЕЗА Мантурово',
-            about: 'Город Мантурово, ул.Матросова, дом 2Б, 2 этаж',
-        },
-        {
-            label: 'СВЕЗА Новатор',
-            value: 'СВЕЗА Новатор',
-            about: 'Вологодская обл., Великоустюгский район, поселок Новатор',
-        },
-        {
-            label: 'СВЕЗА Верхняя Синячиха',
-            value: 'СВЕЗА Верхняя Синячиха',
-            about: 'Алапаевский район, посёлок Верхняя Синячиха, ул.Кедровая, дом 1',
-        },
-        {
-            label: 'СВЕЗА Тюмень',
-            value: 'СВЕЗА Тюмень',
-            about: 'Город Тюмень, ул.Камчатская, 196',
-        },
-        {
-            label: 'СВЕЗА Ресурс',
-            value: 'СВЕЗА Ресурс',
-            about: 'Тотемский район, посёлок Советский, ул. Дачная 1А',
-        },
-    ];
-    const customStyles = {
-        control: (provided: any, state: any) => ({
-            ...provided,
-            width: 342,
-            height: 45,
-            border: '1.5px solid #D6D6D6',
-            borderRadius: 0,
-            fontFamily: 'Gotham, sans-serif',
-            fontSize: '13px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            boxShadow: 'unset',
-            ':hover': {
-                borderColor: '#D6D6D6',
-            },
-        }),
-        option: (provided: any, state: any) => ({
-            ...provided,
-            display: 'flex',
-            alignItems: 'center',
-            height: 39,
-            cursor: 'pointer',
-            color: '#525252',
-            font: 'bold 13px Gotham, sans-serif',
-            background: state.isSelected ? '#FBFBFB' : '#FBFBFB',
-            ':hover': {
-                background: '#81B33B',
-                color: '#fff',
-            },
-        }),
-        indicatorSeparator: () => ({
-            display: 'none',
-        }),
-        indicatorsContainer: () => ({
-            svg: {
-                fill: '#525252',
-                ':hover': {
-                    fill: '#525252',
-                },
-            },
-        }),
+    const [currentValue, setCurrentValue] = useState('Текущее выбранное значение');
+
+    const MenuList = ({ ...props }) => {
+        return (
+            <components.MenuList {...props}>
+                <div style={menuHeaderStyle}>{currentValue}<div style={checkMark}/></div>
+                {props.children}
+            </components.MenuList>
+        );
     };
 
     return (
@@ -138,6 +157,23 @@ export const Profile = () => {
                             Адрес проживания
                             <input type="text" className="Profile-Input" />
                         </label>
+                        <label className="Profile-Label">
+                            Дата рождения
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={dateBirth}
+                                onChange={(date: null) => setDateBirth(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
                     </div>
                     <div className="Profile-Grid">
                         <Select
@@ -146,13 +182,15 @@ export const Profile = () => {
                             styles={customStyles}
                             isSearchable={false}
                             components={{ MenuList }}
+                            onChange={({...newValue}) => setCurrentValue(newValue.value)}
+                            menuIsOpen={true}
                         />
 
                         <div className="Profile-Empty" />
                         <fieldset className="Profile-PhoneNumber">
                             <label className="Phone">
-                                <input type="number" className="Phone-CityCode" />
-                                <input type="number" className="Phone-Number" />
+                                <input type="tel" className="Phone-CityCode" />
+                                <input type="tel" className="Phone-Number" />
                             </label>
                         </fieldset>
                         <label className="Profile-Label">
@@ -253,20 +291,23 @@ export const Profile = () => {
                         </fieldset>
                     </div>
                     <div className="Profile-Grid">
-                        <DatePicker
-                            dateFormat="dd-MM-yyyy"
-                            selected={startDateEnter}
-                            onChange={(date: null) => setDateEnter(date)}
-                            locale={ru}
-                            showMonthDropdown
-                            showYearDropdown
-                            scrollableYearDropdown
-                            className="Date"
-                            dayClassName={date => 'Date-Day'}
-                            calendarClassName="Date-Calendar"
-                            placeholderText="__-__-____"
-                            todayButton="Выбрать"
-                        />
+                        <label className="Profile-Label">
+                            Год поступления
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={startDateEnter}
+                                onChange={(date: null) => setDateEnter(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
                         <label className="Profile-Label">
                             Наименование учебного заведения
                             <input type="text" className="Profile-Input" />
@@ -277,20 +318,23 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid">
-                        <DatePicker
-                            dateFormat="dd-MM-yyyy"
-                            selected={startDateEnd}
-                            onChange={(date: null) => setDateEnd(date)}
-                            locale={ru}
-                            showMonthDropdown
-                            showYearDropdown
-                            scrollableYearDropdown
-                            className="Date"
-                            dayClassName={date => 'Date-Day'}
-                            calendarClassName="Date-Calendar"
-                            placeholderText="__-__-____"
-                            todayButton="Выбрать"
-                        />
+                        <label className="Profile-Label">
+                            Год окончания
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={startDateEnd}
+                                onChange={(date: null) => setDateEnd(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
                         <label className="Profile-Label">
                             Специальность, квалификация
                             <input type="text" className="Profile-Input" />
@@ -304,20 +348,23 @@ export const Profile = () => {
                     </div>
                     <div className="Profile-Grid">
                         <h2 className="Profile-Subtitle">1 работа</h2>
-                        <DatePicker
-                            dateFormat="dd-MM-yyyy"
-                            selected={startDateEnterSecond}
-                            onChange={(date: null) => setDateEnterSecond(date)}
-                            locale={ru}
-                            showMonthDropdown
-                            showYearDropdown
-                            scrollableYearDropdown
-                            className="Date"
-                            dayClassName={date => 'Date-Day'}
-                            calendarClassName="Date-Calendar"
-                            placeholderText="__-__-____"
-                            todayButton="Выбрать"
-                        />
+                        <label className="Profile-Label">
+                            Дата поступления
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={startDateEnterSecond}
+                                onChange={(date: null) => setDateEnterSecond(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
                         <label className="Profile-Label">
                             Наименование организации
                             <input type="text" className="Profile-Input" />
@@ -328,20 +375,23 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid Profile-Grid_gap_top">
-                        <DatePicker
-                            dateFormat="dd-MM-yyyy"
-                            selected={startDateEndSecond}
-                            onChange={(date: null) => setDateEndSecond(date)}
-                            locale={ru}
-                            showMonthDropdown
-                            showYearDropdown
-                            scrollableYearDropdown
-                            className="Date"
-                            dayClassName={date => 'Date-Day'}
-                            calendarClassName="Date-Calendar"
-                            placeholderText="__-__-____"
-                            todayButton="Выбрать"
-                        />
+                        <label className="Profile-Label">
+                            Дата окончания
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={startDateEndSecond}
+                                onChange={(date: null) => setDateEndSecond(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
                         <label className="Profile-Label">
                             Должность
                             <input type="text" className="Profile-Input" />
@@ -349,20 +399,24 @@ export const Profile = () => {
                     </div>
                     <div className="Profile-Grid">
                         <h2 className="Profile-Subtitle">2 работа</h2>
-                        <DatePicker
-                            dateFormat="dd-MM-yyyy"
-                            selected={startDateEnterThree}
-                            onChange={(date: null) => setDateEnterThree(date)}
-                            locale={ru}
-                            showMonthDropdown
-                            showYearDropdown
-                            scrollableYearDropdown
-                            className="Date"
-                            dayClassName={date => 'Date-Day'}
-                            calendarClassName="Date-Calendar"
-                            placeholderText="__-__-____"
-                            todayButton="Выбрать"
-                        />
+                        <label className="Profile-Label">
+                            Дата поступления
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={startDateEnterThree}
+                                onChange={(date: null) => setDateEnterThree(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
+
                         <label className="Profile-Label">
                             Наименование организации
                             <input type="text" className="Profile-Input" />
@@ -373,20 +427,23 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid Profile-Grid_gap_top">
-                        <DatePicker
-                            dateFormat="dd-MM-yyyy"
-                            selected={startDateEndThree}
-                            onChange={(date: null) => setDateEndThree(date)}
-                            locale={ru}
-                            showMonthDropdown
-                            showYearDropdown
-                            scrollableYearDropdown
-                            className="Date"
-                            dayClassName={date => 'Date-Day'}
-                            calendarClassName="Date-Calendar"
-                            placeholderText="__-__-____"
-                            todayButton="Выбрать"
-                        />
+                        <label className="Profile-Label">
+                            Дата окончания
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={startDateEndThree}
+                                onChange={(date: null) => setDateEndThree(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
                         <label className="Profile-Label">
                             Должность
                             <input type="text" className="Profile-Input" />
@@ -394,20 +451,23 @@ export const Profile = () => {
                     </div>
                     <div className="Profile-Grid">
                         <h2 className="Profile-Subtitle">3 работа</h2>
-                        <DatePicker
-                            dateFormat="dd-MM-yyyy"
-                            selected={startDateEnterFour}
-                            onChange={(date: null) => setDateEnterFour(date)}
-                            locale={ru}
-                            showMonthDropdown
-                            showYearDropdown
-                            scrollableYearDropdown
-                            className="Date"
-                            dayClassName={date => 'Date-Day'}
-                            calendarClassName="Date-Calendar"
-                            placeholderText="__-__-____"
-                            todayButton="Выбрать"
-                        />
+                        <label className="Profile-Label">
+                            Дата поступления
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={startDateEnterFour}
+                                onChange={(date: null) => setDateEnterFour(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
                         <label className="Profile-Label">
                             Наименование организации
                             <input type="text" className="Profile-Input" />
@@ -418,20 +478,23 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid Profile-Grid_gap_top">
-                        <DatePicker
-                            dateFormat="dd-MM-yyyy"
-                            selected={startDateEndFour}
-                            onChange={(date: null) => setDateEndFour(date)}
-                            locale={ru}
-                            showMonthDropdown
-                            showYearDropdown
-                            scrollableYearDropdown
-                            className="Date"
-                            dayClassName={date => 'Date-Day'}
-                            calendarClassName="Date-Calendar"
-                            placeholderText="__-__-____"
-                            todayButton="Выбрать"
-                        />
+                        <label className="Profile-Label">
+                            Дата окончания
+                            <DatePicker
+                                dateFormat="dd-MM-yyyy"
+                                selected={startDateEndFour}
+                                onChange={(date: null) => setDateEndFour(date)}
+                                locale={ru}
+                                showMonthDropdown
+                                showYearDropdown
+                                scrollableYearDropdown
+                                className="Date"
+                                dayClassName={date => 'Date-Day'}
+                                calendarClassName="Date-Calendar"
+                                placeholderText="__-__-____"
+                                todayButton="Выбрать"
+                            />
+                        </label>
                         <label className="Profile-Label">
                             Должность
                             <input type="text" className="Profile-Input" />

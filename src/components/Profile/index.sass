@@ -121,11 +121,15 @@
         width: 101px
         height: 45px
         padding: 17px
+        margin-bottom: 34px
         font:
             size: 13px
             family: "Gotham", sans-serif
         color: #525252
         border: 1.5px solid #D6D6D6
+        &:focus
+            border: 1.5px solid #81B33B
+            outline: none
     &-Number
         width: 219px
         height: 45px
@@ -135,6 +139,9 @@
             family: "Gotham", sans-serif
         color: #525252
         border: 1.5px solid #D6D6D6
+        &:focus
+            border: 1.5px solid #81B33B
+            outline: none
 
 .Checkbox
     padding-right: 29px
@@ -245,8 +252,6 @@
     width: 342px
     height: 45px
     padding: 17px
-    margin:
-        bottom: 34px
     font:
         size: 13px
         family: "Gotham", sans-serif
@@ -353,7 +358,7 @@
                     display: block
                     width: 12px
                     height: 12px
-                    background: url("./arrow.svg") center/contain no-repeat
+                    background: url("./img/arrow.svg") center/contain no-repeat
             &__month-read-view--down-arrow
                 display: none
             &__year-read-view--down-arrow
