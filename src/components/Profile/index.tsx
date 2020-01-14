@@ -198,7 +198,7 @@ export const Profile = () => {
                             Адрес проживания
                             <input type="text" className="Profile-Input" />
                         </label>
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Дата рождения
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -216,7 +216,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
                     </div>
                     <div className="Profile-Grid">
                         <label className="Select-Label">
@@ -334,7 +334,7 @@ export const Profile = () => {
                         </fieldset>
                     </div>
                     <div className="Profile-Grid">
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Год поступления
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -352,7 +352,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
                         <label className="Profile-Label">
                             Наименование учебного заведения
                             <input type="text" className="Profile-Input" />
@@ -363,7 +363,7 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid">
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Год окончания
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -381,7 +381,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
                         <label className="Profile-Label">
                             Специальность, квалификация
                             <input type="text" className="Profile-Input" />
@@ -395,7 +395,7 @@ export const Profile = () => {
                     </div>
                     <div className="Profile-Grid">
                         <h2 className="Profile-Subtitle">1 работа</h2>
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Дата поступления
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -413,7 +413,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
                         <label className="Profile-Label">
                             Наименование организации
                             <input type="text" className="Profile-Input" />
@@ -424,7 +424,7 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid Profile-Grid_gap_top">
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Дата окончания
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -442,7 +442,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
                         <label className="Profile-Label">
                             Должность
                             <input type="text" className="Profile-Input" />
@@ -450,7 +450,7 @@ export const Profile = () => {
                     </div>
                     <div className="Profile-Grid">
                         <h2 className="Profile-Subtitle">2 работа</h2>
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Дата поступления
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -468,7 +468,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
 
                         <label className="Profile-Label">
                             Наименование организации
@@ -480,7 +480,7 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid Profile-Grid_gap_top">
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Дата окончания
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -498,7 +498,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
                         <label className="Profile-Label">
                             Должность
                             <input type="text" className="Profile-Input" />
@@ -506,7 +506,7 @@ export const Profile = () => {
                     </div>
                     <div className="Profile-Grid">
                         <h2 className="Profile-Subtitle">3 работа</h2>
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Дата поступления
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -524,7 +524,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
                         <label className="Profile-Label">
                             Наименование организации
                             <input type="text" className="Profile-Input" />
@@ -535,7 +535,7 @@ export const Profile = () => {
                         </label>
                     </div>
                     <div className="Profile-Grid Profile-Grid_gap_top">
-                        <label className="Profile-Label">
+                        <div className="Profile-Label">
                             Дата окончания
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
@@ -553,7 +553,7 @@ export const Profile = () => {
                                 todayButton="Выбрать"
                                 yearDropdownItemNumber={40}
                             />
-                        </label>
+                        </div>
                         <label className="Profile-Label">
                             Должность
                             <input type="text" className="Profile-Input" />
