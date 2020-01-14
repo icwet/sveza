@@ -18,8 +18,12 @@ export const Main: FC<MainProps> = ({ onClick }) => {
                     <h2 className="MainContent-Subtitle">Мировой лидер по производству березовой фанеры</h2>
                 </div>
                 <div className="MainContent-Buttons">
-                    <Link to="/profile" className="MainContent-Button">Заполнить анкету</Link>
-                    <Link to="/profile" className="MainContent-Button MainContent-Button_transparent">Вакансии</Link>
+                    <Link to="/profile" className="MainContent-Button">
+                        Заполнить анкету
+                    </Link>
+                    <Link to="/profile" className="MainContent-Button MainContent-Button_transparent">
+                        Вакансии
+                    </Link>
                 </div>
             </div>
             <button className="MainMore" onClick={onClick}>

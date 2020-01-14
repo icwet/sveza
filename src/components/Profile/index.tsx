@@ -1,5 +1,5 @@
 import './index.sass';
-import React, { useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
@@ -47,27 +47,34 @@ const address = [
         about: 'Тотемский район, посёлок Советский, ул. Дачная 1А',
     },
 ];
-const menuHeaderStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    height: 45,
-    padding: '12px',
-    marginBottom: '12px',
-    color: '#525252',
-    font: 'bold 13px Gotham, sans-serif',
-};
-const checkMark = {
-    width: 12,
-    height: 12,
-    background: 'url("./img/checkmark.svg") center/contain no-repeat'
+const customComponentStyles = {
+    menuHeaderStyle: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        height: 45,
+        padding: '13px 13px 0 28px',
+        marginBottom: '12px',
+        color: '#525252',
+        font: 'bold 13px Gotham, sans-serif',
+    },
+    separator: {
+        position: 'absolute',
+        top: 50,
+        width: 286,
+        height: 1.5,
+        background: '#D6D6D6',
+    } as CSSProperties,
+    customAbout: {
+        paddingTop: '8px',
+        lineHeight: 1.5,
+        opacity: 0.5,
+    },
 };
 const customStyles = {
     control: (provided: any, state: any) => ({
         ...provided,
         width: 342,
         height: 45,
-        marginTop: 28,
-        marginBottom: 169,
         border: '1.5px solid #D6D6D6',
         borderRadius: 0,
         fontFamily: 'Gotham, sans-serif',
@@ -82,12 +89,15 @@ const customStyles = {
     option: (provided: any, state: any) => ({
         ...provided,
         display: 'flex',
-        alignItems: 'center',
-        height: 39,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        padding: '13px 13px 0 28px',
+        height: 86,
         cursor: 'pointer',
         color: '#525252',
         font: 'bold 13px Gotham, sans-serif',
         background: state.isSelected ? '#FBFBFB' : '#FBFBFB',
+        userSelect: 'select',
         ':hover': {
             background: '#81B33B',
             color: '#fff',
@@ -106,12 +116,24 @@ const customStyles = {
     }),
     menu: (provided: any, state: any) => ({
         ...provided,
+        marginTop: 18,
         background: '#FBFBFB',
         borderRadius: 0,
-        boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)'
+        boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
+        '&:before': {
+            content: '""',
+            display: 'block',
+            width: 0,
+            height: 0,
+            position: 'absolute',
+            top: -12,
+            left: 12,
+            borderStyle: 'solid',
+            borderWidth: '0 12px 12px 12px',
+            borderColor: 'transparent transparent #FBFBFB transparent',
+        },
     }),
 };
-
 
 export const Profile = () => {
     const [dateBirth, setDateBirth] = useState(null);
@@ -124,12 +146,31 @@ export const Profile = () => {
     const [startDateEnterFour, setDateEnterFour] = useState(null);
     const [startDateEndFour, setDateEndFour] = useState(null);
 
-    const [currentValue, setCurrentValue] = useState('Текущее выбранное значение');
+    const [currentValue, setCurrentValue] = useState('');
+
+    const Option = ({ ...props }) => {
+        return (
+            <components.Option {...props}>
+                {props.children}
+                <div style={customComponentStyles.customAbout}>{props.data.about}</div>
+            </components.Option>
+        );
+    };
 
     const MenuList = ({ ...props }) => {
+        console.log();
         return (
             <components.MenuList {...props}>
-                <div style={menuHeaderStyle}>{currentValue}<div style={checkMark}/></div>
+                <div style={customComponentStyles.menuHeaderStyle}>
+                    {currentValue || props.options[0].value}
+                    <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.2806 0L5.24268 7.03301L1.98512 3.76382L0.613281 5.24773L5.34855 10L12.7545 1.37361L11.2806 0Z"
+                            fill="#81B33B"
+                        />
+                    </svg>
+                    <div style={customComponentStyles.separator} />
+                </div>
                 {props.children}
             </components.MenuList>
         );
@@ -161,6 +202,7 @@ export const Profile = () => {
                             Дата рождения
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={dateBirth}
                                 onChange={(date: null) => setDateBirth(date)}
                                 locale={ru}
@@ -172,25 +214,28 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
                     </div>
                     <div className="Profile-Grid">
-                        <Select
-                            defaultValue={address[0]}
-                            options={address}
-                            styles={customStyles}
-                            isSearchable={false}
-                            components={{ MenuList }}
-                            onChange={({...newValue}) => setCurrentValue(newValue.value)}
-                            // menuIsOpen={true}
-                        />
+                        <label className="Select-Label">
+                            <span>Комбинат*</span>
+                            <Select
+                                defaultValue={address[0]}
+                                options={address}
+                                styles={customStyles}
+                                isSearchable={false}
+                                components={{ MenuList, Option }}
+                                onChange={({ ...newValue }) => setCurrentValue(newValue.value)}
+                            />
+                        </label>
 
-                        <div className="Profile-Empty" />
                         <fieldset className="Profile-PhoneNumber">
                             <label className="Phone">
-                                <input type="tel" className="Phone-CityCode" />
-                                <input type="tel" className="Phone-Number" />
+                                <span>Телефон*</span>
+                                <input placeholder="+7" type="tel" className="Phone-CityCode" />
+                                <input placeholder="___-____-____" type="tel" className="Phone-Number" />
                             </label>
                         </fieldset>
                         <label className="Profile-Label">
@@ -198,8 +243,6 @@ export const Profile = () => {
                             <input type="text" className="Profile-Input" />
                         </label>
                     </div>
-                    <div className="Profile-Grid"></div>
-                    <div className="Profile-Grid"></div>
                     <div className="Profile-Grid">
                         <h2 className="Profile-Subtitle">Паспортные данные</h2>
                         <label className="Profile-Label">
@@ -295,6 +338,7 @@ export const Profile = () => {
                             Год поступления
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={startDateEnter}
                                 onChange={(date: null) => setDateEnter(date)}
                                 locale={ru}
@@ -306,6 +350,7 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
                         <label className="Profile-Label">
@@ -322,6 +367,7 @@ export const Profile = () => {
                             Год окончания
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={startDateEnd}
                                 onChange={(date: null) => setDateEnd(date)}
                                 locale={ru}
@@ -333,6 +379,7 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
                         <label className="Profile-Label">
@@ -352,6 +399,7 @@ export const Profile = () => {
                             Дата поступления
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={startDateEnterSecond}
                                 onChange={(date: null) => setDateEnterSecond(date)}
                                 locale={ru}
@@ -363,6 +411,7 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
                         <label className="Profile-Label">
@@ -379,6 +428,7 @@ export const Profile = () => {
                             Дата окончания
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={startDateEndSecond}
                                 onChange={(date: null) => setDateEndSecond(date)}
                                 locale={ru}
@@ -390,6 +440,7 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
                         <label className="Profile-Label">
@@ -403,6 +454,7 @@ export const Profile = () => {
                             Дата поступления
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={startDateEnterThree}
                                 onChange={(date: null) => setDateEnterThree(date)}
                                 locale={ru}
@@ -414,6 +466,7 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
 
@@ -431,6 +484,7 @@ export const Profile = () => {
                             Дата окончания
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={startDateEndThree}
                                 onChange={(date: null) => setDateEndThree(date)}
                                 locale={ru}
@@ -442,6 +496,7 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
                         <label className="Profile-Label">
@@ -455,6 +510,7 @@ export const Profile = () => {
                             Дата поступления
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={startDateEnterFour}
                                 onChange={(date: null) => setDateEnterFour(date)}
                                 locale={ru}
@@ -466,6 +522,7 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
                         <label className="Profile-Label">
@@ -482,6 +539,7 @@ export const Profile = () => {
                             Дата окончания
                             <DatePicker
                                 dateFormat="dd-MM-yyyy"
+                                fixedHeight={true}
                                 selected={startDateEndFour}
                                 onChange={(date: null) => setDateEndFour(date)}
                                 locale={ru}
@@ -493,6 +551,7 @@ export const Profile = () => {
                                 calendarClassName="Date-Calendar"
                                 placeholderText="__-__-____"
                                 todayButton="Выбрать"
+                                yearDropdownItemNumber={40}
                             />
                         </label>
                         <label className="Profile-Label">

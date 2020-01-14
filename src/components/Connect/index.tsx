@@ -18,7 +18,9 @@ export const Connect = () => {
                     <li className="Connect-Elem">Уверенность в завтрашнем дне</li>
                     <li className="Connect-Elem">Забота о сотрудниках и их здоровье</li>
                 </ul>
-                <Link to="/profile" className="Connect-Button">Заполнить анкету</Link>
+                <Link to="/profile" className="Connect-Button">
+                    Заполнить анкету
+                </Link>
             </div>
             <div className="Connect-Preview"></div>
         </section>
