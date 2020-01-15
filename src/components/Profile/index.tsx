@@ -158,7 +158,6 @@ export const Profile = () => {
     };
 
     const MenuList = ({ ...props }) => {
-        console.log();
         return (
             <components.MenuList {...props}>
                 <div style={customComponentStyles.menuHeaderStyle}>
