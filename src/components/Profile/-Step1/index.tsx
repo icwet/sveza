@@ -1,50 +1,8 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, FC, MutableRefObject, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
 import Select, { components } from 'react-select';
 
-const address = [
-    {
-        label: 'СВЕЗА Усть-Ижора',
-        value: 'СВЕЗА Усть-Ижора',
-        about: 'Колпинский район, посёлок Понтонный, ул.Фанерная, дом 5, 3 этаж',
-    },
-    {
-        label: 'СВЕЗА Кострома',
-        value: 'СВЕЗА Кострома',
-        about: 'Город Кострома, улица Комсомольская, дом 2, 1 этаж',
-    },
-    {
-        label: 'СВЕЗА Уральский',
-        value: 'СВЕЗА Уральский',
-        about: 'Пермский край, Нытвенский р-н, пос. Уральский, ул . Московская, дом 1а',
-    },
-    {
-        label: 'СВЕЗА Мантурово',
-        value: 'СВЕЗА Мантурово',
-        about: 'Город Мантурово, ул.Матросова, дом 2Б, 2 этаж',
-    },
-    {
-        label: 'СВЕЗА Новатор',
-        value: 'СВЕЗА Новатор',
-        about: 'Вологодская обл., Великоустюгский район, поселок Новатор',
-    },
-    {
-        label: 'СВЕЗА Верхняя Синячиха',
-        value: 'СВЕЗА Верхняя Синячиха',
-        about: 'Алапаевский район, посёлок Верхняя Синячиха, ул.Кедровая, дом 1',
-    },
-    {
-        label: 'СВЕЗА Тюмень',
-        value: 'СВЕЗА Тюмень',
-        about: 'Город Тюмень, ул.Камчатская, 196',
-    },
-    {
-        label: 'СВЕЗА Ресурс',
-        value: 'СВЕЗА Ресурс',
-        about: 'Тотемский район, посёлок Советский, ул. Дачная 1А',
-    },
-];
 const customComponentStyles = {
     menuHeaderStyle: {
         display: 'flex',
@@ -132,8 +90,70 @@ const customStyles = {
         },
     }),
 };
+const address = [
+    {
+        label: 'СВЕЗА Усть-Ижора',
+        value: 'СВЕЗА Усть-Ижора',
+        about: 'Колпинский район, посёлок Понтонный, ул.Фанерная, дом 5, 3 этаж',
+    },
+    {
+        label: 'СВЕЗА Кострома',
+        value: 'СВЕЗА Кострома',
+        about: 'Город Кострома, улица Комсомольская, дом 2, 1 этаж',
+    },
+    {
+        label: 'СВЕЗА Уральский',
+        value: 'СВЕЗА Уральский',
+        about: 'Пермский край, Нытвенский р-н, пос. Уральский, ул . Московская, дом 1а',
+    },
+    {
+        label: 'СВЕЗА Мантурово',
+        value: 'СВЕЗА Мантурово',
+        about: 'Город Мантурово, ул.Матросова, дом 2Б, 2 этаж',
+    },
+    {
+        label: 'СВЕЗА Новатор',
+        value: 'СВЕЗА Новатор',
+        about: 'Вологодская обл., Великоустюгский район, поселок Новатор',
+    },
+    {
+        label: 'СВЕЗА Верхняя Синячиха',
+        value: 'СВЕЗА Верхняя Синячиха',
+        about: 'Алапаевский район, посёлок Верхняя Синячиха, ул.Кедровая, дом 1',
+    },
+    {
+        label: 'СВЕЗА Тюмень',
+        value: 'СВЕЗА Тюмень',
+        about: 'Город Тюмень, ул.Камчатская, 196',
+    },
+    {
+        label: 'СВЕЗА Ресурс',
+        value: 'СВЕЗА Ресурс',
+        about: 'Тотемский район, посёлок Советский, ул. Дачная 1А',
+    },
+];
 
-export const ProfileStep1 = () => {
+interface Profile {
+    firstName: string;
+    lastName: string;
+    middleName: string;
+    phone: string;
+    organization: string;
+}
+interface Props {
+    handleChange: React.ChangeEventHandler<HTMLInputElement>;
+    nameRef: MutableRefObject<HTMLInputElement>;
+}
+
+export const ProfileStep1: FC<Profile & Props> = ({
+    firstName,
+    middleName,
+    lastName,
+    organization,
+    phone,
+    nameRef,
+    handleChange,
+}) => {
     const [dateBirth, setDateBirth] = useState(null);
     const [currentValue, setCurrentValue] = useState('');
 
@@ -176,15 +196,22 @@ export const ProfileStep1 = () => {
                 </label>
                 <label className="Profile-Label">
                     Фамилия*
-                    <input name="lastName" type="text" className="Profile-Input" />
+                    <input type="text" className="Profile-Input" />
                 </label>
                 <label className="Profile-Label">
                     Имя*
-                    <input name="firstName" type="text" className="Profile-Input" />
+                    <input
+                        type="text"
+                        ref={nameRef}
+                        value={firstName}
+                        onChange={handleChange}
+                        className="Profile-Input"
+                        required
+                    />
                 </label>
                 <label className="Profile-Label">
-                    Отчество*
-                    <input name="middleName" type="text" className="Profile-Input" />
+                    Отчество
+                    <input type="text" className="Profile-Input" />
                 </label>
                 <label className="Profile-Label">
                     Адрес проживания
@@ -227,7 +254,12 @@ export const ProfileStep1 = () => {
                     <label className="Phone">
                         <span>Телефон*</span>
                         <input placeholder="+7" type="tel" className="Phone-CityCode" />
-                        <input placeholder="___-____-____" type="tel" className="Phone-Number" />
+                        <input
+                            // onChange={handleChange}
+                            placeholder="___-____-____"
+                            type="tel"
+                            className="Phone-Number"
+                        />
                     </label>
                 </fieldset>
                 <label className="Profile-Label">
