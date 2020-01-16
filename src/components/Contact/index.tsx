@@ -60,7 +60,7 @@ export const Contact = () => {
                 <div className="Contact-Ph">
                     Запись на собеседование на рабочие вакансии
                     <a href="tel:88005000710" className="Contact-Phone">
-                        8 800 500-07-10
+                        8 800 500 07 10
                     </a>
                     <small className="Contact-Small">Круглосуточно, бесплатно по России</small>
                     <div className="Contact-Requisites">© ООО «Свеза-Лес», 2019</div>
@@ -75,9 +75,6 @@ export const Contact = () => {
                                 <div className="Map-Info">
                                     <h2 className="Title">{e.title}</h2>
                                     <p className="Ph">{e.address}</p>
-                                    <a href="tel:+73434697318" className="Phone">
-                                        {e.phone}
-                                    </a>
                                 </div>
                             </div>
                         );

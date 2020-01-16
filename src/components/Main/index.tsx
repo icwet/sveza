@@ -21,9 +21,11 @@ export const Main: FC<MainProps> = ({ onClick }) => {
                     <Link to="/profile" className="MainContent-Button">
                         Заполнить анкету
                     </Link>
-                    <Link to="/profile" className="MainContent-Button MainContent-Button_transparent">
+                    <a
+                        href="https://www.sveza.ru/career/vacancies/"
+                        className="MainContent-Button MainContent-Button_transparent">
                         Вакансии
-                    </Link>
+                    </a>
                 </div>
             </div>
             <button className="MainMore" onClick={onClick}>
